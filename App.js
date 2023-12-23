@@ -8,10 +8,16 @@ import RegisterScreen from "./screens/RegisterScreen";
 import Discover from "./screens/Discover";
 import ItemScreen from "./screens/ItemScreen";
 import LoginScreen from "./screens/LoginScreen";
+import { useEffect } from "react";
+import firebase from "./config";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+	useEffect(() => {
+		// Initialize Firebase when the app starts
+		firebase;
+	}, []);
 	return (
 		<TailwindProvider>
 			<NavigationContainer>

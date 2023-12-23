@@ -8,7 +8,14 @@ export default function InputField({
 	keyboardType,
 	fieldButtonLabel,
 	fieldButtonFunction,
+	textVal,
+	changeHandler,
 }) {
+	const handleInputChange = (event) => {
+		console.log("event", event);
+		changeHandler(event);
+	};
+
 	return (
 		<View
 			style={{
@@ -25,13 +32,16 @@ export default function InputField({
 					placeholder={label}
 					keyboardType={keyboardType}
 					style={{ flex: 1, paddingVertical: 0 }}
-					secureTextEntry={true}
+					value={textVal}
+					onChangeText={handleInputChange}
 				/>
 			) : (
 				<TextInput
 					placeholder={label}
 					keyboardType={keyboardType}
 					style={{ flex: 1, paddingVertical: 0 }}
+					value={textVal}
+					onChangeText={handleInputChange}
 				/>
 			)}
 			<TouchableOpacity onPress={fieldButtonFunction}>
